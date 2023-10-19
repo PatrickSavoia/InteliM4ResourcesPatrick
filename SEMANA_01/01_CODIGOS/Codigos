@@ -1,0 +1,34 @@
+const int pin26out = 26;
+const int pin25out = 25;
+const int pin27out = 27;
+
+void setup() {
+  // Define os pinos como SAIDA
+  pinMode(pin26out, OUTPUT);
+  pinMode(pin25out, OUTPUT);
+  pinMode(pin27out, OUTPUT);
+}
+
+void loop() {
+  for (int num = 0; num <= 7; num++) {
+    int num_print = num;
+    for (int i = 0; i < 3; i++) {
+      int pino;
+      if (i == 0) {
+        pino = pin26out;
+      } else if (i == 1) {
+        pino = pin25out;
+      } else {
+        pino = pin27out;
+      }
+
+      if (num_print % 2) {
+        digitalWrite(pino, HIGH);
+      } else {
+        digitalWrite(pino, LOW);
+      }
+      num_print = num_print / 2;
+    }
+    delay(1000);
+  }
+} 
